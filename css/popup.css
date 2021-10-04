@@ -1,0 +1,38 @@
+html {
+    height: 100px;
+}
+
+body {
+    background-color: #eee9e9;
+    padding-top: 20px;
+    /* padding-bottom: 20px */
+}
+
+.container {
+    width: 300px
+}
+
+.close {
+    font-size: 17px;
+    opacity: .7;
+    color: #fff
+}
+
+.close:focus,
+.close:hover {
+    opacity: .9;
+    color: #fff
+}
+
+.alert-danger {
+    margin-bottom: 0
+}
+
+.img-responsive {
+    margin-top: 20px;
+    border-radius: 4px
+}
+
+.btn {
+    margin: 5px;
+}

@@ -1,0 +1,20 @@
+{
+    "subcribeYoutube": {
+        "message": "Subcribe my Youtube"
+    },
+    "followInstagram": {
+        "message": "Follow my Instagram"
+    },
+    "about": {
+        "message": "About"
+    },
+    "appDescription": {
+        "message": "Protect you from phishing and malware websites with real-time protection technology."
+    },
+    "appName": {
+        "message": "Quick Cookies by ShawnSavour"
+    },
+    "appShortName": {
+        "message": "Quick Cookies"
+    }
+}

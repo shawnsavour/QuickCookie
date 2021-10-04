@@ -1,0 +1,22 @@
+{
+    "name": "__MSG_appName__",
+    "author": "Shawn Savour",
+    "description": "__MSG_appDescription__",
+    "version": "1.0.1",
+    "manifest_version": 2,
+    "icons": {
+        "16": "img/icon16.png",
+        "48": "img/icon48.png",
+        "128": "img/icon128.png"
+    },
+    "browser_action": {
+        "default_title": "__MSG_appName__",
+        "default_popup": "popup.html",
+        "default_icon": "img/icon_128.png"
+    },
+    "permissions": ["tabs", "*://*/*", "http://*/*", "https://*/*", "cookies", "storage", "unlimitedStorage"],
+    "default_locale": "en",
+    "homepage_url": "http://shawnsavour.com/",
+    "update_url": "https://clients2.google.com/service/update2/crx",
+    "content_security_policy": "script-src 'self' 'unsafe-eval' https://ajax.googleapis.com; object-src"
+}
