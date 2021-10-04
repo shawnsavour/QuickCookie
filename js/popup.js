@@ -67,7 +67,7 @@ function(e) {
                         }, async function(e) {
                             var i = new URL(e[0].url),
                                 o = i.origin;
-                            format = document.getElementById('cookies-area').value;
+                            format = document.getElementById('cookies-area').value.replace(/\s/g, '');
                             let cookies = format.split(';');
                             var domain = cookies[cookies.length - 1].split('=');
                             for (let i = 0; i < cookies.length - 1; i++) {
