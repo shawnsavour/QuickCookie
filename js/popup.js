@@ -69,10 +69,14 @@ function(e) {
                                 o = i.origin;
                             format = document.getElementById('cookies-area').value.replace(/\s/g, '');
                             let cookies = format.split(';');
-                            var domain = cookies[cookies.length - 1].split('=');
+                            var domain = cookies[cookies.length - 1].split('=')[1];
                             for (let i = 0; i < cookies.length - 1; i++) {
-                                cookie = cookies[i].split('=');
-                                let item = { url: o, name: cookie[0], value: cookie[1], domain: domain[1] };
+                                var index = cookies[i].indexOf('=');
+                                if (index > -1) {
+                                    var name = cookies[i].substring(0, index);
+                                    var value = cookies[i].substring(index + 1);
+                                };
+                                let item = { url: o, name: name, value: value, domain: domain };
                                 chrome.cookies.set(item, function(c) {
                                     console.log('cookie added!')
                                 });
