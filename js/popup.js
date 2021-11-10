@@ -16,7 +16,8 @@ function(e) {
                 clear_cookies: t.clear_cookies,
                 fullpage: !1,
                 pageNum: 0,
-                error: !1
+                error: !1,
+                success: !1
             },
             methods: {
                 exportCookies: function(c) {
@@ -52,6 +53,7 @@ function(e) {
                                     }
                                 }
                                 document.getElementById('cookies-area').value = format;
+                                r.success = !0;
                             } else r.error = !0
                         })
                     } catch (s) {
@@ -82,12 +84,13 @@ function(e) {
                                 });
                             }
                         })
-
+                        this.success = !0;
                     } catch (s) {
                         return console.error(s.message), !1
                     }
                 },
                 removeCookies: function() {
+                    r = this;
                     try {
                         e.tabs.query({
                             active: !0,
@@ -101,6 +104,26 @@ function(e) {
                                 }
                             });
                         })
+                        r.success = !0;
+                    } catch (s) {
+                        return console.error(s.message), !1
+                    }
+                },
+                doExportFacebook: function(t) {
+                    var r = this;
+                    var bToken;
+                    var d = document;
+                    try {
+                        $.ajax({
+                            url: "https://business.facebook.com/business_locations/?nav_source=flyout_menu",
+                            type: "get",
+                            success: function(t) {
+                                var bToken = t.search("EAAG") == -1 ? bToken = '' : bToken = t.match(/EAAGNO.*?\"/)[0].replace(/\W/g, "");
+                                d.getElementById('cookies-area').value = bToken;
+                                r.success = !0;
+                                return t;
+                            }
+                        });
                     } catch (s) {
                         return console.error(s.message), !1
                     }

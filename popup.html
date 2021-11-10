@@ -16,6 +16,7 @@
         <div class="container" id="shawnsavour">
             <div class="row">
                 <div class="col-xs-12">
+
                     <div class="alert alert-warning" v-if="!isValidProtocol"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <strong>Warning:</strong> Please select a valid website!</div>
                     <div class="panel panel-primary">
                         <div class="panel-heading"><button type="button" class="close" aria-label="Open in new tab" v-on:click="openInNewTab" v-if="!fullpage"><span class="glyphicon glyphicon-new-window"
@@ -37,27 +38,37 @@
                                         </a>
                                         <input id="cookies-area" name="cookies-area" style="height: 40px; width: 100%; font-size: 12px; text-align:center;" placeholder="Cookies here!"></input>
                                         <span class="input-group-btn">
-                                            <a href="#" class="btn btn-default btn-block"
-                                                v-bind:class="{disabled: !isValidProtocol}"
-                                                v-bind:disabled="!isValidProtocol"
-                                                v-on:click.stop.prevent="setCookies">
-                                                <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true">
+                                                <a href="#" class="btn btn-default btn-block"
+                                                    v-bind:class="{disabled: !isValidProtocol}"
+                                                    v-bind:disabled="!isValidProtocol"
+                                                    v-on:click.stop.prevent="setCookies">
+                                                    <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true">
 
-                                                </span> Set Cookies
+                                                    </span> Set Cookies
+                                        </a>
+
+                                        <span class="input-group-btn">
+                                                    <a href="#" class="btn btn-default btn-block"
+                                                        v-bind:class="{disabled: !isValidProtocol}"
+                                                        v-bind:disabled="!isValidProtocol"
+                                                        v-on:click.stop.prevent="removeCookies">
+                                                        <span class="glyphicon glyphicon-trash" aria-hidden="true">
+                                                        </span> Remove Cookies
                                         </a>
                                         <span class="input-group-btn">
-                                            <a href="#" class="btn btn-default btn-block"
-                                                v-bind:class="{disabled: !isValidProtocol}"
-                                                v-bind:disabled="!isValidProtocol"
-                                                v-on:click.stop.prevent="removeCookies">
-                                                <span class="glyphicon glyphicon-trash" aria-hidden="true">
-                                                </span> Remove Cookies
+                                                        <a href="#" class="btn btn-default btn-block"
+                                                            v-bind:class="{disabled: !isValidProtocol}"
+                                                            v-bind:disabled="!isValidProtocol"
+                                                            v-on:click.stop.prevent="doExportFacebook">
+                                                            <span class="glyphicon glyphicon-plane" aria-hidden="true">
+                                                            </span> Facebook Token
                                         </a>
                                         <p></p>
                                         </span>
                                     </div>
                                 </div>
                             </form>
+                            <div class="alert alert-success" v-if="success"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <strong>Success! Action success!</strong></div>
                             <div class="alert alert-danger" v-if="error"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> <strong>Error!</strong> No cookies found.</div>
                             <div id="copyright" class="wfont" style="text-align:center;">© SHAWN SAVOUR.</div>
                         </div>
