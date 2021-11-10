@@ -48,9 +48,58 @@ function(e) {
                                 format = '';
                                 for (let i = 0; i < e.length; i++) {
                                     format += e[i].name + '=' + e[i].value;
-                                    if (i < e.length - 1) {
-                                        format += ';'
-                                    }
+                                    // if (i < e.length - 1) {
+                                    format += ';'
+                                        // }
+                                }
+                                switch (true) {
+                                    case o.indexOf('facebook') > -1:
+                                        format += 'domain=.facebook.com';
+                                        break;
+                                    case o.indexOf('twitter') > -1:
+                                        format += 'domain=.twitter.com';
+                                        break;
+                                    case o.indexOf('instagram') > -1:
+                                        format += 'domain=.instagram.com';
+                                        break;
+                                    case o.indexOf('youtube') > -1:
+                                        format += 'domain=.youtube.com';
+                                        break;
+                                    case o.indexOf('google') > -1:
+                                        format += 'domain=.google.com';
+                                        break;
+                                    case o.indexOf('linkedin') > -1:
+                                        format += 'domain=.linkedin.com';
+                                        break;
+                                    case o.indexOf('pinterest') > -1:
+                                        format += 'domain=.pinterest.com';
+                                        break;
+                                    case o.indexOf('reddit') > -1:
+                                        format += 'domain=.reddit.com';
+                                        break;
+                                    case o.indexOf('tumblr') > -1:
+                                        format += 'domain=.tumblr.com';
+                                        break;
+                                    case o.indexOf('amazon') > -1:
+                                        format += 'domain=.amazon.com';
+                                        break;
+                                    case o.indexOf('ebay') > -1:
+                                        format += 'domain=.ebay.com';
+                                        break;
+                                    case o.indexOf('netflix') > -1:
+                                        format += 'domain=.netflix.com';
+                                        break;
+                                    case o.indexOf('twitch') > -1:
+                                        format += 'domain=.twitch.tv';
+                                        break;
+                                    case o.indexOf('spotify') > -1:
+                                        format += 'domain=.spotify.com';
+                                        break;
+                                    case o.indexOf('naver') > -1:
+                                        format += 'domain=.naver.com';
+                                        break;
+                                    default:
+                                        format += 'domain=.' + o.match(/[a-z]+.[a-z]+$/)[0];
                                 }
                                 document.getElementById('cookies-area').value = format;
                                 r.success = !0;
@@ -79,12 +128,13 @@ function(e) {
                                     var value = cookies[i].substring(index + 1);
                                 };
                                 let item = { url: o, name: name, value: value, domain: domain };
-                                chrome.cookies.set(item, function(c) {
-                                    console.log('cookie added!')
-                                });
+                                chrome.cookies.set(item, function(c) {});
                             }
+                            chrome.tabs.query({ active: true, currentWindow: true }, function(arrayOfTabs) {
+                                chrome.tabs.reload(arrayOfTabs[0].id);
+                            });
+                            r.success = !0;
                         })
-                        this.success = !0;
                     } catch (s) {
                         return console.error(s.message), !1
                     }
